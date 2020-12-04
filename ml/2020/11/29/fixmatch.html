@@ -1,0 +1,547 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>FixMatch - A Simple yet Effective approach to Semi Supervised Learning - Robert Hardwick</title>
+<meta name="description" content="Deep Neural Networks can deliver impressive performance for a variety of computer vision tasks. The key to such impressive performance is in allowing the model to ingest a very large amount of labelled data during the training stage; a process known as Supervised Learning. This learning technique, whilst unbeatable in terms of model performance, has one significant drawback; the cost of data collection. In order to achieve near human level performance in some domains tens of thousands of images may be required, each of which will need to be hand labelled which is a significant human labour cost. Equally there are many domains in which laballed data is scarce or can only be done by a highly trained expert such as in medical imaging. For many businesses, the high cost and/or scarcity of labelled data may prove to be a barrier against the adoption of AI in their business.">
+
+
+  <meta name="author" content="Robert Hardwick">
+  
+  <meta property="article:author" content="Robert Hardwick">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Robert Hardwick">
+<meta property="og:title" content="FixMatch - A Simple yet Effective approach to Semi Supervised Learning">
+<meta property="og:url" content="http://localhost:4000/ml/2020/11/29/fixmatch.html">
+
+
+  <meta property="og:description" content="Deep Neural Networks can deliver impressive performance for a variety of computer vision tasks. The key to such impressive performance is in allowing the model to ingest a very large amount of labelled data during the training stage; a process known as Supervised Learning. This learning technique, whilst unbeatable in terms of model performance, has one significant drawback; the cost of data collection. In order to achieve near human level performance in some domains tens of thousands of images may be required, each of which will need to be hand labelled which is a significant human labour cost. Equally there are many domains in which laballed data is scarce or can only be done by a highly trained expert such as in medical imaging. For many businesses, the high cost and/or scarcity of labelled data may prove to be a barrier against the adoption of AI in their business.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-11-29T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/ml/2020/11/29/fixmatch.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Robert Hardwick Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Robert Hardwick
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/assets/docs/cv.pdf">Curriculum Vitae</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/profile.jpg" alt="Robert Hardwick" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Robert Hardwick</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>AI Engineer and DIY’er.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Manchester, UK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://linkedin.com/robertmhardwick" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/rob2910" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="FixMatch - A Simple yet Effective approach to Semi Supervised Learning">
+    <meta itemprop="description" content="Deep Neural Networks can deliver impressive performance for a variety of computer vision tasks. The key to such impressive performance is in allowing the model to ingest a very large amount of labelled data during the training stage; a process known as Supervised Learning. This learning technique, whilst unbeatable in terms of model performance, has one significant drawback; the cost of data collection. In order to achieve near human level performance in some domains tens of thousands of images may be required, each of which will need to be hand labelled which is a significant human labour cost. Equally there are many domains in which laballed data is scarce or can only be done by a highly trained expert such as in medical imaging. For many businesses, the high cost and/or scarcity of labelled data may prove to be a barrier against the adoption of AI in their business.">
+    <meta itemprop="datePublished" content="2020-11-29T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">FixMatch - A Simple yet Effective approach to Semi Supervised Learning
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Deep Neural Networks can deliver impressive performance for a variety of computer vision tasks. The key to such impressive performance is in allowing the model to ingest a very large amount of labelled data during the training stage; a process known as Supervised Learning. This learning technique, whilst unbeatable in terms of model performance, has one significant drawback; the cost of data collection. In order to achieve near human level performance in some domains tens of thousands of images may be required, each of which will need to be hand labelled which is a significant human labour cost. Equally there are many domains in which laballed data is scarce or can only be done by a highly trained expert such as in medical imaging. For many businesses, the high cost and/or scarcity of labelled data may prove to be a barrier against the adoption of AI in their business.</p>
+
+<h1 id="what-is-semi-supervised-learning">What is Semi-Supervised Learning?</h1>
+
+<p>Thankfully, there is an alternative method of learning known as Semi-Supervised Learning (SSL) which offers a solution. The premise behind SSL is that learning can be achieved with a small amount of labelled data and a much larger amount of unlabelled data. The field is not new, with approaches to SSL dating back as far as the 1960s, however there has been recent traction in an algorithm called FixMatch <a href="https://arxiv.org/pdf/2001.07685.pdf">( published in 2020’s NuerIPS conference )</a> which offers both simplicity and state of the art performance accross a number of SSL benchmarks which may be a valuable tool towards unlocking the barrier of access to labelled data for many domains. In this post we will dig deeper into the algorithm to understand how it works.</p>
+
+<p>Let’s consider a cat vs dog classification task. Suppose we have thousands of images of cats and dogs but only a small proportion of these images have been labelled.</p>
+
+<figure style="display:block;text-align:center;">
+  <img src="/assets/images/catanddog.svg" alt="num unlabelled examples \&gt;\&gt; num labelled examples" style="width:75%" />
+  <figcaption>num unlabelled examples &gt;&gt; num labelled examples</figcaption>
+</figure>
+
+<p>Under the normal ‘supervised’ learning method we would only be able to make use of the labelled examples. For this type of learning we would feed a single example into the model, which would then produce a confidence for each possible label. We would then adjust the model according to a loss function which is a measure of how well or how badly the model performed against the true label.</p>
+
+<figure style="display:block;text-align:center;">
+  <img src="/assets/images/supervised.svg" alt="Supervised Training of a cat vs dog classifier" style="width:75%" />
+  <figcaption>Supervised Training of a cat vs dog classifier</figcaption>
+</figure>
+
+<p>In general, the more labelled data you have, the more accurately the model will be able to predict the correct class for unseen examples. Thankfully researchers have devised methods to mitigate the effects of lack of data, namely by transforming the original input data in order to generate additional training examples. For example we can apply transformations such as flipping, rotating or cropping to the original input and feed it to the model as if a brand new example.</p>
+
+<figure style="display:block;text-align:center;">
+  <img src="/assets/images/augmentations.svg" alt="Examples of simple image augmentations" style="width:25%" />
+  <figcaption>Examples of simple image augmentations</figcaption>
+</figure>
+
+<h2 id="consistency-regularization">Consistency Regularization</h2>
+
+<blockquote>
+  <p>What if we fed the model 2 different augmented images from the same source image? We would expect it to predict the same class, right?</p>
+</blockquote>
+
+<p>This is the idea behind consistency regularization, a method commonly used in SSL training. The method ensures that the classifier output remains unaffected for unlabelled examples even if is strongly augmented.</p>
+
+<h2 id="pseudo-labeling">Pseudo Labeling</h2>
+
+<p>Another popular SSL method that has been shown to improve model generalization is pseudo-labeling. The idea behind pseudo-labeling is to use model predictions for unlabelled images as artificial labels, and subsequently to use those artificial labels to train the same model against. It may seem counter-intuitive that training a model with it’s own predictions but it has been shown to be effective especially when only confident predictions are used as psuedo labels.</p>
+
+<h1 id="how-does-fixmatch-work">How does FixMatch work?</h1>
+
+<p>The FixMatch algorithm combines these 2 popular SSL methods ( pseudo-labelling and consistency regularization) into a single pipeline.</p>
+
+<ul>
+  <li>As shown in the diagram below we first apply a weak augmentation such as random crop, flip or translation to the unlabelled input example and use this to generate a psuedo-label based on the models predicted output. Note that we discard examples that the model is not confident about.</li>
+  <li>Next we apply a strong augmentation such as Cutout, RandAugment or CTAugment to the same input image and feed the result into the model. Then we can obtain an Unsupervised Loss based on the cross-entropy loss between the prediction of our strongly augmented image and the pseudo-label.</li>
+</ul>
+
+<figure style="display:block;text-align:center;">
+  <img src="/assets/images/fixmatch1.png" alt="FixMatch Algorithm Overview" style="width:80%" />
+  <figcaption>FixMatch Algorithm Overview</figcaption>
+</figure>
+
+<p>Of course, we also perform supervised learning on the labelled examples which gives us an addditional Supervised Loss. We combine these losses with a scalar hyperparameter that determines the relative contribution of the unsupervised loss in relation to the supervised loss.</p>
+
+<h1 id="results">Results</h1>
+
+<p>If we look at the results shown in the paper we can see that FixMatch outperforms existing SOTA methods on CIFAR-10 and SVHN datasets despite being simpler in comparison to many of the other methods. The number of labels in the table indicates the number of labeled examples that we’re used with the remainder of the dataset being treated as unlabelled. Given that CIFAR-10 contains 10 classes that means with just 4 labelled examples per class FixMatch was able to achieve an averge error rate of just 11.39%.</p>
+
+<figure style="display:block;text-align:center;">
+  <img src="/assets/images/results.png" alt="Results" style="width:80%" />
+  <figcaption>Results on CIFAR-10, CIFAR-100 and SVHN datasets</figcaption>
+</figure>
+
+<p>The authors also evaluated the model on ImageNet to verify it’s efficacy on larger, more complex datasets. They sample 10% of the data to treat as labeled examples and the remaining 90% is considered as unlabelled. They managed to achieve a top-1 error rate of 28.54 +/- 0.52 and a top-5 error rate of 10.87 +/- 0.28 which is better than UDA and impressive considering the simplicity of the approach.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>To sum up, owing to it’s relative simplicity and state of the art performance on a number of SSL image classification benchmarks, FixMatch presents promising tool to help break the barrier towards the adoption of machine learning that is presented by the lack of labelled data.</p>
+
+<p>The paper is available <a href="https://arxiv.org/pdf/2001.07685.pdf">here</a></p>
+
+<p>The code is available on github <a href="https://github.com/google-research/fixmatch">here</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-29T00:00:00+00:00">November 29, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=FixMatch+-+A+Simple+yet+Effective+approach+to+Semi+Supervised+Learning%20http%3A%2F%2Flocalhost%3A4000%2Fml%2F2020%2F11%2F29%2Ffixmatch.html" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fml%2F2020%2F11%2F29%2Ffixmatch.html" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fml%2F2020%2F11%2F29%2Ffixmatch.html" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/ml/2017/12/18/cpu-vs-gpu.html" class="pagination--pager" title="Building a Deep Learning PC without breaking the bank
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ml/2017/12/18/cpu-vs-gpu.html" rel="permalink">Building a Deep Learning PC without breaking the bank
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">and why do I even need a GPU anyway?
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ml/2017/10/31/hello-world.html" rel="permalink">Deep Learning : Hello World
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          9 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">As with learning any new tool or programming language it’s always a good idea to dip your toe in the water before attempting a something more complicated.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Robert Hardwick. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
