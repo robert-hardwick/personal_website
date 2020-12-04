@@ -44,7 +44,6 @@ markdown: kramdown
 theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
-
 defaults:
   # _posts
   - scope:
