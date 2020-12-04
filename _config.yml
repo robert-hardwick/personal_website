@@ -35,10 +35,10 @@ author:
   links:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/robertmhardwick"
+      url: "https://linkedin.com/in/robertmhardwick"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/rob2910"
+      url: "https://github.com/robert-hardwick/"
 # Build settings
 markdown: kramdown
 theme: minimal-mistakes-jekyll
