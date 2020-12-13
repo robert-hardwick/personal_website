@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-10T19:59:54+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robert Hardwick</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Robert Hardwick</name></author><entry><title type="html">FixMatch - A Simple yet Effective approach to Semi Supervised Learning</title><link href="http://localhost:4000/ml/2020/11/29/fixmatch.html" rel="alternate" type="text/html" title="FixMatch - A Simple yet Effective approach to Semi Supervised Learning" /><published>2020-11-29T00:00:00+00:00</published><updated>2020-11-29T00:00:00+00:00</updated><id>http://localhost:4000/ml/2020/11/29/fixmatch</id><content type="html" xml:base="http://localhost:4000/ml/2020/11/29/fixmatch.html">&lt;p&gt;Deep Neural Networks can deliver impressive performance for a variety of computer vision tasks. The key to such impressive performance is in allowing the model to ingest a very large amount of labelled data during the training stage; a process known as Supervised Learning. This learning technique, whilst unbeatable in terms of model performance, has one significant drawback; the cost of data collection. In order to achieve near human level performance in some domains tens of thousands of images may be required, each of which will need to be hand labelled which is a significant human labour cost. Equally there are many domains in which laballed data is scarce or can only be done by a highly trained expert such as in medical imaging. For many businesses, the high cost and/or scarcity of labelled data may prove to be a barrier against the adoption of AI in their business.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-13T17:36:56+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robert Hardwick</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Robert Hardwick</name></author><entry><title type="html">Restoring a Greenhouse - Part 1</title><link href="http://localhost:4000/diy/2020/12/11/greenhouse-part1.html" rel="alternate" type="text/html" title="Restoring a Greenhouse - Part 1" /><published>2020-12-11T00:00:00+00:00</published><updated>2020-12-11T00:00:00+00:00</updated><id>http://localhost:4000/diy/2020/12/11/greenhouse-part1</id><content type="html" xml:base="http://localhost:4000/diy/2020/12/11/greenhouse-part1.html">&lt;p&gt;Earlier this year I decided it was there was no better time to have a go at repairing the overgrown wooden greenhouse at the bottom of my garden. My grandfather bought it second hand in the 1950’s so it’s possible that it is apporaching 100 years old.&lt;/p&gt;
+
+&lt;p&gt;There are a lot of memories attached to the greenhouse having been used extensively by my grandfather for growing tomatoes, so rather than knock it down or propping it up to buy a few extra years I decided that full blown restoration was in order.&lt;/p&gt;
+
+&lt;h1 id=&quot;accessing-the-condition&quot;&gt;Accessing the condition&lt;/h1&gt;
+
+&lt;p&gt;Below is an old photograph of it in it’s prime in the 1970s and as it stood when I started the project.&lt;/p&gt;
+
+&lt;figure style=&quot;display:block;text-align:center;&quot;&gt;
+  &lt;img src=&quot;/assets/images/greenhouse/1970s.jpg&quot; alt=&quot;stage 1&quot; style=&quot;width:75%&quot; /&gt;
+  &lt;figcaption&gt;greenhouse in the 70s&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure style=&quot;display:block;text-align:center;&quot;&gt;
+  &lt;img src=&quot;/assets/images/greenhouse/stage1_1.jpg&quot; alt=&quot;stage 1&quot; style=&quot;width:75%&quot; /&gt;
+  &lt;figcaption&gt;starting point&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Having not been used for about 5 years and probably not repainted in 10 it had certainly seen better days. On initial inspection it was clear that there was rotten wood in several places, many of the glass panels were broken or missing and there was a large amount of weeds and shrubs growing inside. However, the major issue was that the left side was leaning outwards and some of the roofing slats were warped.&lt;/p&gt;
+
+&lt;p&gt;In order to find out the real cause of the wonkiness we needed to clear out everything inside and the overgrowth around it.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Before Clearing&lt;/td&gt;
+      &lt;td&gt;After Clearing&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/images/greenhouse/stage1_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/images/greenhouse/stage2_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/images/greenhouse/stage1_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/images/greenhouse/stage2_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;After clearing out the inside it became clear that the tree roots of a nearby Poplar had lifted the foundation and caused the entire structure to be out of shape.&lt;/p&gt;
+
+&lt;figure style=&quot;display:block;text-align:center;&quot;&gt;
+&lt;img src=&quot;/assets/images/greenhouse/roots.jpg&quot; alt=&quot;stage 1&quot; style=&quot;width:75%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;the-teardown&quot;&gt;The Teardown&lt;/h1&gt;
+
+&lt;p&gt;Having seen that the foudnations were uneven it was decided that the structure would have to come down and be rebuilt with new foundations; a mammoth task but surely worth it when it’s finished. So I began the task of careful taking the structure apart.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/images/greenhouse/stage3a.jpg&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/images/greenhouse/stage3b.jpg&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The glass and roofing slats were easy enough to take apart, but taking the sides apart required removing some heavily corroded coach bolts.&lt;/p&gt;
+
+&lt;figure style=&quot;display:block;text-align:center;&quot;&gt;
+&lt;img src=&quot;/assets/images/greenhouse/coach.jpg&quot; alt=&quot;coach&quot; style=&quot;width:75%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Finally after several weekends of hard work I managed to have the structure down. I managed to save most of the wood and the pieces that couldn’t be salvaged I measured carefully so that replacements could be made.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/greenhouse/stage4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Watch out for the next blog post for the next stage of the build.&lt;/p&gt;</content><author><name>Robert Hardwick</name></author><category term="diy" /><category term="DIY" /><category term="greenhouse" /><category term="brickwork" /><category term="woodwork" /><summary type="html">Earlier this year I decided it was there was no better time to have a go at repairing the overgrown wooden greenhouse at the bottom of my garden. My grandfather bought it second hand in the 1950’s so it’s possible that it is apporaching 100 years old.</summary></entry><entry><title type="html">FixMatch - A Simple yet Effective approach to Semi Supervised Learning</title><link href="http://localhost:4000/ml/2020/11/29/fixmatch.html" rel="alternate" type="text/html" title="FixMatch - A Simple yet Effective approach to Semi Supervised Learning" /><published>2020-11-29T00:00:00+00:00</published><updated>2020-11-29T00:00:00+00:00</updated><id>http://localhost:4000/ml/2020/11/29/fixmatch</id><content type="html" xml:base="http://localhost:4000/ml/2020/11/29/fixmatch.html">&lt;p&gt;Deep Neural Networks can deliver impressive performance for a variety of computer vision tasks. The key to such impressive performance is in allowing the model to ingest a very large amount of labelled data during the training stage; a process known as Supervised Learning. This learning technique, whilst unbeatable in terms of model performance, has one significant drawback; the cost of data collection. In order to achieve near human level performance in some domains tens of thousands of images may be required, each of which will need to be hand labelled which is a significant human labour cost. Equally there are many domains in which laballed data is scarce or can only be done by a highly trained expert such as in medical imaging. For many businesses, the high cost and/or scarcity of labelled data may prove to be a barrier against the adoption of AI in their business.&lt;/p&gt;
 
 &lt;h1 id=&quot;what-is-semi-supervised-learning&quot;&gt;What is Semi-Supervised Learning?&lt;/h1&gt;
 

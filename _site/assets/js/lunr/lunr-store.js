@@ -16,4 +16,10 @@ var store = [{
         "tags": ["semi-supervised learning","SSL","machine learning"],
         "url": "http://localhost:4000/ml/2020/11/29/fixmatch.html",
         "teaser": null
+      },{
+        "title": "Restoring a Greenhouse - Part 1",
+        "excerpt":"Earlier this year I decided it was there was no better time to have a go at repairing the overgrown wooden greenhouse at the bottom of my garden. My grandfather bought it second hand in the 1950’s so it’s possible that it is apporaching 100 years old. There are a...","categories": ["diy"],
+        "tags": ["DIY","greenhouse","brickwork","woodwork"],
+        "url": "http://localhost:4000/diy/2020/12/11/greenhouse-part1.html",
+        "teaser": null
       }]
