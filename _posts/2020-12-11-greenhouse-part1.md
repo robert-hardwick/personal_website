@@ -20,12 +20,12 @@ There are a lot of memories attached to the greenhouse having been used extensiv
 Below is an old photograph of it in it's prime in the 1970s and as it stood when I started the project.
 
 <figure style="display:block;text-align:center;">
-  <img src="/greenhouse-part1/1970s.jpg" alt="stage 1" >
+  <img src="/assets/img/greenhouse-part1/1970s.jpg" alt="stage 1" >
   <figcaption>greenhouse in the 70s</figcaption>
 </figure>
 
 <figure style="display:block;text-align:center;">
-  <img src="/greenhouse-part1/stage1_1.jpg" alt="stage 1" >
+  <img src="/assets/img/greenhouse-part1/stage1_1.jpg" alt="stage 1" >
   <figcaption>starting point</figcaption>
 </figure>
 
@@ -35,14 +35,14 @@ In order to find out the real cause of the wonkiness we needed to clear out ever
 
 :-------------------------:|:-------------------------:
 Before Clearing             |  After Clearing
-![](/greenhouse-part1/stage1_1.jpg)  |  ![](/greenhouse-part1/stage2_1.jpg)
-![](/greenhouse-part1/stage1_3.jpg)  |  ![](/greenhouse-part1/stage2_2.jpg)
+![](/assets/img/greenhouse-part1/stage1_1.jpg)  |  ![](/assets/img/greenhouse-part1/stage2_1.jpg)
+![](/assets/img/greenhouse-part1/stage1_3.jpg)  |  ![](/assets/img/greenhouse-part1/stage2_2.jpg)
 
 
 After clearing out the inside it became clear that the tree roots of a nearby Poplar had lifted the foundation and caused the entire structure to be out of shape.
 
 <figure style="display:block;text-align:center;">
-<img src="/greenhouse-part1/roots.jpg" alt="stage 1" >
+<img src="/assets/img/greenhouse-part1/roots.jpg" alt="stage 1" >
 </figure>
 
 # The Teardown
@@ -50,17 +50,17 @@ After clearing out the inside it became clear that the tree roots of a nearby Po
 Having seen that the foudnations were uneven it was decided that the structure would have to come down and be rebuilt with new foundations; a mammoth task but surely worth it when it's finished. So I began the task of careful taking the structure apart.
 
 :-------------------------:|:-------------------------:
-![](/greenhouse-part1/stage3a.jpg)  |  ![](/greenhouse-part1/stage3b.jpg)
+![](/assets/img/greenhouse-part1/stage3a.jpg)  |  ![](/assets/img/greenhouse-part1/stage3b.jpg)
 
 
 The glass and roofing slats were easy enough to take apart, but taking the sides apart required removing some heavily corroded coach bolts.
 
 <figure style="display:block;text-align:center;">
-<img src="/greenhouse-part1/coach.jpg" alt="coach" >
+<img src="/assets/img/greenhouse-part1/coach.jpg" alt="coach" >
 </figure>
 
 Finally after several weekends of hard work I managed to have the structure down. I managed to save most of the wood and the pieces that couldn't be salvaged I measured carefully so that replacements could be made.
 
-![](/greenhouse-part1/stage4.jpg)
+![](/assets/img/greenhouse-part1/stage4.jpg)
 
 Watch out for the next blog post for the next stage of the build.

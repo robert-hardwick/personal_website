@@ -20,7 +20,7 @@ The MNIST dataset is a well-known collection of images of handwritten digits cre
 Each image represents a handwritten digit (0-9) and conists of 28 x 28 (784) pixels, each containing a value between 0 and 255 representing the grayscale pixel intensity. In addition the images are in white on black format ( meaning that the background has the highest pixel intensity).
 
 <figure style="width:400px;text-align: center;" class="align-center">
-	<img src="/hello-world/alldigits.png" alt="">
+	<img src="/assets/img/hello-world/alldigits.png" alt="">
 	<figcaption>MNIST dataset</figcaption>
 </figure>
 
@@ -65,15 +65,15 @@ Now we just copy the url provided into a web browser to begin developing (note t
 
 An added benefit of using keras is that it already includes MNIST data, so loading it into your project is as simple as the following (provided that your machine has access to the internet)
 
-{% highlight python linenos %}
+```python
 from keras.datasets import mnist
 #keras will automatically downlhoad the dataset
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-{% endhighlight %}
+```
 
 We can use matplotlib to view some randomly picked examples
 
-{% highlight python linenos %}
+```python
 import matplotlib.pyplot as plt
 import random
 
@@ -93,10 +93,10 @@ plt.subplot(224)
 plt.imshow(x_train[random.randint(0, train_size-1)], cmap=plt.get_cmap('gray'))
 # show the plot
 plt.show()
-{% endhighlight %}
+```
 
 <figure style="width:400px;text-align: center;" class="align-center">
-	<img src="/hello-world/mnist.png" alt="">
+	<img src="/assets/img/hello-world/mnist.png" alt="">
 	<figcaption>Example digits from the MNIST dataset</figcaption>
 </figure>
 
@@ -105,13 +105,13 @@ plt.show()
 
 Before we design the neural network we need to do a little pre-processing of the data. First we need to convert the image data into a single row vector, and whilst we are here we can divide by 255 so that our data is always between 0 and 1.
 
-{% highlight python linenos %}
+```python
 num_pixels = x_train.shape[1] * x_train.shape[2]
 
 #reshape each data point into a single row vector of 784 pixel values
 x_train = x_train.reshape(x_train.shape[0], num_pixels) / 255
 x_test = x_test.reshape(x_test.shape[0], num_pixels) / 255
-{% endhighlight %}
+```
 
 
 # One Hot Encoding
@@ -126,11 +126,11 @@ For example the label **3** would encode to
 
 This is done using a built in keras utility.
 
-{% highlight python linenos %}
+```python
 from keras.utils import np_utils
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
-{% endhighlight %}
+```
 
 # Multi-Layer Perceptron Model
 
@@ -150,7 +150,7 @@ In order to implement an MLP there are a few layers in keras that we need to und
 
 Using the layers described above we can make a simple MLP with 2 hidden layers, each having 512 units with the following code.
 
-{% highlight python linenos %}
+```python
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Dropout
@@ -168,24 +168,24 @@ model.add(Activation('relu'))
 model.add(Dropout(0.2))
 model.add(Dense(num_classes))
 model.add(Activation('softmax'))
-{% endhighlight %}
+```
 
 Next we define the loss that we are minimizing. In this case we choose categorical_crossentropy as our loss as it's aim is to maximize the probability of the image belonging to the correct class as opposed to mean squared error which aim's to reduce the squared error between the actual value and the predicted value for each class.
 
 We also specify the gradient descent optimizer, in this case we have used 'adam' but there are a number of different options available.
 
-{% highlight python linenos %}
+```python
 # Compile model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-{% endhighlight %}
+```
 
 ## Fit and Evaluate
 
 Finally when we fit the model we should see the loss converge to a minima. Note that with *validation_split=0.1* we are randomly selecting 10 percent of the training data to help tune the parameters, but we never allow test data to feed into the training.
 
-{% highlight python linenos %}
+```python
 model.fit(x_train, y_train, validation_split=0.1, epochs=10, batch_size=200, verbose=2)
-{% endhighlight %}
+```
 
 ```
 Train on 54000 samples, validate on 6000 samples
@@ -213,10 +213,10 @@ Epoch 10/10
 
 Finally we evaluate on the test data
 
-{% highlight python linenos %}
+```python
 scores = model.evaluate(x_test, y_test, verbose=0)
 print("Baseline Accuracy: %.2f%%" % (scores[1]\*100))
-{% endhighlight %}
+```
 
 Our Multi-Layer Perceptron is able to gain a **98.39%** accuracy on unseen data.
 
@@ -236,7 +236,7 @@ A brief description of some of the layers involved.
 | MaxPooling2D       | This layer reduces the size of the input by taking the max value of the pixels determined by the pool size.
 | Flatten       | Collapses the input in one dimension. ( similar to a matrix reshape )
 
-{% highlight python linenos %}
+```python
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Dropout
@@ -259,8 +259,7 @@ model.add(Dense(1024))
 model.add(Dropout(0.4))
 model.add(Dense(num_classes))
 model.add(Activation('softmax'))
-{% endhighlight %}
-
+```
 ## Evaluation 
 
 With the model used above we are able to achieve **99.19%** accuracy on the unseen test data.
@@ -270,10 +269,10 @@ With the model used above we are able to achieve **99.19%** accuracy on the unse
 Since we achieved over 99% accuracy on the provided MNIST test data, we can attempt to predict some of our own handwriting writing. First we need to create a few images of digits that are centered and square in dimension to roughly match the data that the model has been trained on.
 
 <figure class="quarter">
-	<img src="/hello-world/digits/2.jpg" alt="">
-	<img src="/hello-world/digits/0.jpg" alt="">
-	<img src="/hello-world/digits/1.jpg" alt="">
-	<img src="/hello-world/digits/7.jpg" alt="">
+	<img src="/assets/img/hello-world/digits/2.jpg" alt="">
+	<img src="/assets/img/hello-world/digits/0.jpg" alt="">
+	<img src="/assets/img/hello-world/digits/1.jpg" alt="">
+	<img src="/assets/img/hello-world/digits/7.jpg" alt="">
 </figure>
 
 
@@ -281,7 +280,7 @@ Since we achieved over 99% accuracy on the provided MNIST test data, we can atte
 
 A small amount of pre-processing is required to ensure the images are of the same format as the MNIST training / test images.
 
-{% highlight python linenos %}
+```python
 import glob
 import numpy as np
 from PIL import Image
@@ -291,16 +290,16 @@ images = sorted(glob.glob('images/\*.jpg'))
 new_test = 255 - np.array([ np.asarray(Image.open(filename).convert("L").resize((new_width, new_height), Image.ANTIALIAS)) for filename in images ])
 #now we normalize the data so that the values are between 0 and 1 like the training data
 new_test = (new_test - new_test.min()) / (new_test.max() - new_test.min())
-{% endhighlight %}
+```
 
 ## Predict the class
 
 In one line we can predict the class of the image.
 
-{% highlight python linenos %}
+```python
 output = model.predict_classes(new_test)
 
-{% endhighlight %}
+```
 
 ```
 [ 2 0 1 7]
