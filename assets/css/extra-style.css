@@ -1,0 +1,26 @@
+.socialmedia {
+    margin: 0 auto 0 auto;
+}
+
+.socialmedia ul {
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+.socialmedia ul li {
+    display: inline;
+}
+
+.socialmedia ul li::before {
+    content: "";
+}
+
+.socialmedia ul li a {
+    text-decoration: none;
+}
+
+.socialtitle {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    text-align: center;
+}

@@ -277,12 +277,13 @@
     color: $black;
     opacity: 0.8;
     font-weight: $bold-weight;
-    font-size: $small-font-size;
+    font-size: $medium-large-font-size;
   }
   a.footer_item {
     color: $black;
     opacity: 0.8;
     text-decoration: none;
+    font-size: $medium-large-font-size;
 
     &:not(:last-child) {
       margin-right: 10px;

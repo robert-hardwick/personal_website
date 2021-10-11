@@ -1,18 +1,17 @@
 ---
-title: Colophon
+title: About Me
 permalink: /about/
 layout: page
 excerpt: Hello peeps, I'm student of computer science from Banyuwangi, living in Jogjakarta. This blog for documentation about my programming journey, running on jekyll, hosting on netlify and using my own simple theme.
 comments: false
 ---
 
-He's a student from Banyuwangi, living in Jogjakarta. the blog for documentation about his programming 🎒 journey, running on jekyll, hosting on [now.sh](http://now.sh) and using his own theme, he name it <a href="https://github.com/piharpi/jekyll-klise" target="_blank" rel="noopener">klisé</a>, he also loves to learning web technology; but he often forgot, that a reason why him doing the writing.
+I'm Rob, AI Engineer based in Manchester and currently working for [mindtrace.ai](http://mindtrace.ai).
 
-If you have a question about him or else, just send a letter to him.
+When I find the time I like to write short blogs about projects that I am proud of or sometimes it can help to better understand an algorithm by writing about it. I also enjoy DIY projects and cycling. 
 
-You can [report](http://github.com/piharpi/jekyll-klise/issues/new) if there is an broken link(s) or somethings else.
+Feel free to reach out to me if you want to find out more about me.
 
-**may u needs ✨**
-
-- {{ site.author.email }}
-- github.com/{{ site.author.github }}
+<p align="center">
+<a href="#">Resume / CV</a>
+</p>
